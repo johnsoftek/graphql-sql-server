@@ -1,7 +1,4 @@
 
 /node_modules/
 .env
-/graphql/types/
-/graphql/resolvers/
-/graphql/config/
 /data/
