@@ -18,11 +18,17 @@ const bridge = {
 }
 
 const resolveRefs = (row, selections) => {
-  let refField
-  refField = selections.find(f => f.kind === 'Field' && f.name.value === 'posts')
-  if (refField) {
-      row.posts = findPosts({ userId: row['id'] }, refField.selectionSet.selections)
-    }
+  let reqRefField
+  reqRefField = selections.find(f => f.kind === 'Field' && f.name.value === 'posts')
+  if (reqRefField) {
+    // filter on parent
+    let args = { userId: row['id']  }
+    // Add any additional filters
+    reqRefField.arguments.forEach(arg => {
+      args[arg.name.value] = arg.value.value
+    })
+    row.posts = findPosts(args, reqRefField.selectionSet.selections)
+  }
 
   return row
 }

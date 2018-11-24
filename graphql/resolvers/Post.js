@@ -19,10 +19,16 @@ const bridge = {
 }
 
 const resolveRefs = (row, selections) => {
-  let refField
-  refField = selections.find(f => f.kind === 'Field' && f.name.value === 'user')
-    if (refField) {
-      row.user = findOneUser({ id: row['userId'] }, refField.selectionSet.selections)
+  let reqRefField
+  reqRefField = selections.find(f => f.kind === 'Field' && f.name.value === 'user')
+    if (reqRefField) {
+      // filter on parent
+      let args = { id: row['userId'] }
+      // Add any additional filters
+      reqRefField.arguments.forEach(arg => {
+        args[arg.name.value] = arg.value.value
+      })
+      row.user = findOneUser(args, reqRefField.selectionSet.selections)
     }
 
   return row

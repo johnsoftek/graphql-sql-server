@@ -3,17 +3,18 @@ export default
     id: String!
     name: String!
     emailAddress: String!
-    posts: [Post]
+    "List of posts belonging to this User"
+    posts(id: String, title: String, timeCreated: String): [Post]
   }
 
   type Query {
-    user(id: String, name: String, emailAddress: String): User
+    user(id: String!, name: String!, emailAddress: String!): User
     users: [User]
   }
 
   type Mutation {
     addUser(id: String!, name: String!, emailAddress: String!): User
-    editUser(id: String, name: String, emailAddress: String): User
-    deleteUser(id: String, name: String, emailAddress: String): ConfirmDeleteKey
+    editUser(id: String!, name: String!, emailAddress: String!): User
+    deleteUser(id: String!, name: String!, emailAddress: String!): ConfirmDeleteKey
   }
 `
