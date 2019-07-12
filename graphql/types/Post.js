@@ -9,13 +9,13 @@ export default
   }
 
   type Query {
-    post(id: String!, title: String!, timeCreated: String!, userId: String!): Post
+    post(id: String, title: String, timeCreated: String, userId: String): Post
     posts: [Post]
   }
 
   type Mutation {
     addPost(id: String!, title: String!, timeCreated: String!, userId: String!): Post
-    editPost(id: String!, title: String!, timeCreated: String!, userId: String!): Post
-    deletePost(id: String!, title: String!, timeCreated: String!, userId: String!): ConfirmDeleteKey
+    editPost(id:String, title:String, timeCreated:String, userId:String): Post
+    deletePost(id: String!): ConfirmDeleteKey
   }
 `

@@ -33,7 +33,7 @@
     "graphql": "^14.0.2",
     "graphql-tools": "^4.0.3",
     "knex": "^0.15.2",
-    "lodash": "^4.17.11",
+    "lodash": "~> 4.17.13",
     "merge-graphql-schemas": "^1.5.8",
     "mssql": "4.1.0",
     "nodemon": "^1.18.6",

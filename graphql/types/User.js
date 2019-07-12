@@ -8,13 +8,13 @@ export default
   }
 
   type Query {
-    user(id: String!, name: String!, emailAddress: String!): User
+    user(id: String, name: String, emailAddress: String): User
     users: [User]
   }
 
   type Mutation {
     addUser(id: String!, name: String!, emailAddress: String!): User
-    editUser(id: String!, name: String!, emailAddress: String!): User
-    deleteUser(id: String!, name: String!, emailAddress: String!): ConfirmDeleteKey
+    editUser(id:String, name:String, emailAddress:String): User
+    deleteUser(id: String!): ConfirmDeleteKey
   }
 `
