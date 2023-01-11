@@ -32,7 +32,7 @@
     "express-graphql": "^0.6.12",
     "graphql": "^14.0.2",
     "graphql-tools": "^4.0.3",
-    "knex": "^0.15.2",
+    "knex": "^2.4.0",
     "lodash": "~> 4.17.13",
     "merge-graphql-schemas": "^1.5.8",
     "mssql": "4.1.0",
